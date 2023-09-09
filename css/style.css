@@ -1,0 +1,181 @@
+  
+  
+  body{background-color: #060c3b;
+    color: white;
+    overflow: hidden;
+    }
+    .item{
+        height: 100%;
+        overflow: hidden;}
+    .layer{
+    position: absolute;
+    background-color: rgb(0, 0, 0,0.22);    
+    
+    width:100% ;
+     top: 0;
+    height: 100%; 
+     opacity: 0;
+    transition: all 0.5s;    
+    }
+    .item:hover .layer{
+     
+    
+        opacity: 1;    
+        }
+        input{
+color: #4134d8;
+
+
+        }
+        .item:hover img{
+            transform: rotate(5deg);
+    
+            scale: 2;
+        }
+li{ cursor: pointer;
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+a{ cursor: pointer;
+    list-style: none;
+    text-decoration: none;
+ color: white;
+}
+
+.side-nav,.nav-tab{
+    height: 100vh !important;
+}
+.nav-tab .container{
+    height: 100vh !important;
+
+}
+.links li {
+    padding-bottom: 25px;
+
+}
+
+.links ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.logo-img {
+    width: 30px;
+}
+
+.nav-header {
+    width: 30%;
+}
+
+.side-nav {
+    width: 19%;
+}
+
+.icons {
+    font-size: 30px;
+}
+
+.nav-tab {
+    margin-left: -341px;
+    background-color: black;
+}
+
+  
+
+/***********************LOADING SCREEN  ******************/
+.loading-screen {
+    height: 100vh !important;
+    background-color: black;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #FFF;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+.contact-container .form-control {
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    border-color: #CED4DA;
+    border-radius: 0;
+    color: #fff;
+    text-align: center;
+}
+
+input::placeholder {
+    color: gray !important;
+}
+
+.btn {
+    background-color: black;
+}
+
+.item {
+    height: 100%;
+    overflow: hidden;
+}
+
+.layer {
+    position: absolute;
+    background-color: rgb(0, 0, 0, 0.22);
+
+    width: 100%;
+    top: 0;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.item:hover .layer {
+
+
+    opacity: 1;
+}
+
+.item:hover img {
+    transform: rotate(5deg);
+
+    scale: 2;
+}
+.upIcon {
+    position: fixed;
+    right: 24px;
+    bottom: 14px;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    display: none;
+    /* transition-property: 2s; */
+    z-index: 525555;
+}
