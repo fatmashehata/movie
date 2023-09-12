@@ -8,23 +8,12 @@ const trending = document.getElementById("trending");
 const upcoming = document.getElementById("upcoming");
 const Search = document.getElementById("Search");
 
-$(window).scroll(function () {
-  let sectionOffset = $(".searchContainer").offset().top;
-  let windowScroll = $(window).scrollTop();
-  if (windowScroll > sectionOffset) {
-    $(".upIcon").css("display", "flex");
-  } else {
-    $(".upIcon").css("display", "none");
-  }
-});
-$(".upIcon").click(function () {
-  $("html,body").animate({ scrollTop: 0 }, 700);
-});
 // ^===================================>loading screen
 $(document).ready(function () {
   $("#loadingScreen").fadeOut(1000, function () {
     $("body").css("overflow", "auto");
     $("#loadingScreen").remove();
+    getMovies()
   });
 });
 $("section").ready(function () {
@@ -46,12 +35,26 @@ function closesideNav() {
 $("#openSideNav").click(opensidnav);
 $("#closeSideNav").click(closesideNav);
 
+//^=============================================================>
+$(window).scroll(function () {
+  let sectionOffset = $(".searchContainer").offset().top;
+  let windowScroll = $(window).scrollTop();
+  if (windowScroll > sectionOffset) {
+    $(".upIcon").css("display", "flex");
+  } else {
+    $(".upIcon").css("display", "none");
+  }
+});
+$(".upIcon").click(function () {
+  $("html,body").animate({ scrollTop: 0 }, 700);
+});
 /********************MOvies******************************* */
 let search = document.getElementById("search");
 search.addEventListener("keyup", function () {
   if (search.value == "") {
     getMovies();
   } else {
+
     show(search.value);
   }
 });
@@ -65,7 +68,7 @@ async function show(term) {
     },
   };
   let req = await fetch(
-    `https://api.themoviedb.org/3/search/movie?query=${term}&api_key=a295c2fda0d44898d34830970fce7edc&language=en-US&include_adult=false`,
+    `https://api.themoviedb.org/3/search/movie?query=${term}&api_key=e0d424c20bca510b05675bb000f298bc=en-US&include_adult=false`,
     options
   );
 
@@ -76,47 +79,50 @@ async function show(term) {
 /*************************End Movies**************************************** */ //
 $("li").click(function () {
   if (this.innerHTML == "Now Playing") {
-    nowPlaying.innerHTML = "";
     topRated.innerHTML = "";
-    popular.trinnerHTML = "";
-    upcoming.trinnerHTML = "";
-    Search.trinnerHTML = "";
+    popular.innerHTML = "";
+    upcoming.innerHTML = "";
+    Search.innerHTML = "";
     getMovies();
     closesideNav();
   } else if (this.innerHTML == "Popular") {
-    nowPlaying.innerHTML = "";
     topRated.innerHTML = "";
-    popular.trinnerHTML = "";
-    upcoming.trinnerHTML = "";
-    Search.trinnerHTML = "";
+    popular.innerHTML = "";
+    upcoming.innerHTML = "";
+    Search.innerHTML = "";
     getpopular();
     closesideNav();
   } else if (this.innerHTML == "Top Rated") {
-    nowPlaying.innerHTML = "";
     topRated.innerHTML = "";
-    popular.trinnerHTML = "";
-    upcoming.trinnerHTML = "";
-    Search.trinnerHTML = "";
+    popular.innerHTML = "";
+    upcoming.innerHTML = "";
+    Search.innerHTML = "";
     getTopRated();
     closesideNav();
   } else if (this.innerHTML == "Trending") {
-    nowPlaying.innerHTML = "";
     topRated.innerHTML = "";
-    popular.trinnerHTML = "";
-    upcoming.trinnerHTML = "";
-    Search.trinnerHTML = "";
+    popular.innerHTML = "";
+    upcoming.innerHTML = "";
+    Search.innerHTML = "";
     getTrending();
     closesideNav();
   } else if (this.innerHTML == "Upcoming") {
-    nowPlaying.innerHTML = "";
     topRated.innerHTML = "";
-    popular.trinnerHTML = "";
-    upcoming.trinnerHTML = "";
-    Search.trinnerHTML = "";
+    popular.innerHTML = "";
+    upcoming.innerHTML = "";
+    Search.innerHTML = "";
     getUpcoming();
-    closesideNav();
-  }
+    closesideNav();}
+    else if (this.innerHTML == "search") {
+      topRated.innerHTML = "";
+      popular.innerHTML = "";
+      upcoming.innerHTML = "";
+      trending.innerHTML = "";
+      show()
+      closesideNav();}
+
 });
+/*******************************display Api*************************************** */
 function display(showList, id) {
   let temp = "";
 
@@ -137,18 +143,18 @@ function display(showList, id) {
           </span>
 
           <div class="vote position-absolute rounded-circle p-3 m-3 border border-2  border-success stert-0">
-            ${item.vote_average.split().slice(0, 2)}
+            ${item.vote_average?.toFixed(1)}
           </div>
         </div>
       </div>
     </div>
       `;
     } else {
+      //?.split().slice(0, 3)//
       temp += ` <div class="col-md-4">
           <div class="item rounded border border-info position-relative">
-              <img src="${
-                "https://image.tmdb.org/t/p/w500" + item.poster_path
-              }" class="w-100 rounded-top ">
+              <img src="${"https://image.tmdb.org/t/p/w500" + item.poster_path
+        }" class="w-100 rounded-top ">
   
   
               <div class="layer p-3">
@@ -160,9 +166,8 @@ function display(showList, id) {
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star-half-stroke"></i>
                   </span>
-                  <div class="position-absolute rounded-circle p-3 m-3 border border-success  stert-0">${
-                    item.vote_average
-                  }</div>
+                  <div class="position-absolute rounded-circle p-3 m-3 border border-success  stert-0">${item.vote_average
+        }</div>
               </div>
           </div>
       </div>  `;
@@ -171,7 +176,8 @@ function display(showList, id) {
   document.getElementById(id).innerHTML = temp;
 }
 
-/*********************************DATA USER********************************* */
+/*********************************ALL api********************************* */
+
 async function getMovies() {
   const options = {
     method: "GET",
@@ -268,6 +274,8 @@ async function getUpcoming() {
   display(showList, "upcoming");
 }
 
+/*  nowPlaying.innerHTML = "";
+${item.vote_average?.split().slice(0, 5)}
+*/
 
-
-/****************************contact */
+/////////////////////////////////////////////////

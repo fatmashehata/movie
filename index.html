@@ -1,210 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie</title>
-    <link
-      rel="shortcut icon"
-      href="./images/logo - Copy.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
 
-  <body>
-    <div class="upIcon ">
-      <i class="fa-solid fa-arrow-up"></i>
-    </div>
-    <div
-      class="loading-screen d-flex align-items-center justify-content-center"
-      id="loadingScreen"
-    >
-      <span class="loader"></span>
-    </div>
-    <div class="side-nav position-fixed d-flex text-light z-3">
-      <div class="nav-tab d-flex flex-column justify-content-between p-4">
-        <div class="container d-flex justify-content-between flex-column">
-          <div class="links">
-            <ul>
-              <li id="NowPlaying">Now Playing</li>
-              <li id="Popular">Popular</li>
-              <li id="TopRated">Top Rated</li>
-              <li id="Trending">Trending</li>
-              <li id="Upcoming">Upcoming</li>
-              <li ><a href="#Contactus">Contact Us</a></li>
-            </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie</title>
+  <link rel="shortcut icon" href="./images/logo - Copy.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="upIcon ">
+    <i class="fa-solid fa-arrow-up"></i>
+  </div>
+  <div class="loading-screen d-flex align-items-center justify-content-center" id="loadingScreen">
+    <span class="loader"></span>
+  </div>
+  <div class="side-nav position-fixed d-flex text-light z-3">
+    <div class="nav-tab d-flex flex-column justify-content-between p-4">
+      <div class="container d-flex justify-content-between flex-column">
+        <div class="links">
+          <ul>
+            <li id="NowPlaying">Now Playing</li>
+            <li id="Popular">Popular</li>
+            <li id="TopRated">Top Rated</li>
+            <li id="Trending">Trending</li>
+            <li id="Upcoming">Upcoming</li>
+            <li><a href="#Contactus">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="nav-footer">
+          <div>
+            <i class="fa-brands fa-facebook mx-3"></i>
+            <i class="fa-brands fa-twitter mx-2"></i>
+            <i class="fa-solid fa-globe mx-3"></i>
           </div>
-          <div class="nav-footer">
-            <div>
-              <i class="fa-brands fa-facebook mx-3"></i>
-              <i class="fa-brands fa-twitter mx-2"></i>
-              <i class="fa-solid fa-globe mx-3"></i>
-            </div>
-            <div class="footer">
-              <p class="pt-3">
-                Copyright © 2022 All Rights Reserved. <br />Created by
-                <a href="" class="link-danger fw-bold" target="_blank"
-                  >Fatma Shehata</a
-                >
-              </p>
-            </div>
+          <div class="footer">
+            <p class="pt-3">
+              Copyright © 2022 All Rights Reserved. <br />Created by
+              <a href="" class="link-danger fw-bold" target="_blank">Fatma Shehata</a>
+            </p>
           </div>
-        </div>
-      </div>
-      <div
-        class="nav-header d-flex flex-column justify-content-between align-items-center py-4 text-center px-2 bg-white text-black"
-      >
-        <div class="logo-img">
-          <img
-            class="logo w-100"
-            src="/images/logo - Copy.png"
-            alt=""
-            srcset=""
-          />
-        </div>
-        <div class="icons d-flex flex-column">
-          <i class="fa-solid fa-align-justify d-block" id="openSideNav"></i>
-          <i class="fa-solid fa-xmark d-none" id="closeSideNav"></i>
-        </div>
-        <div>
-          <i class="fa-solid fa-globe d-block"></i>
-          <i class="fa-solid fa-share-nodes"></i>
         </div>
       </div>
     </div>
     <div
-      class="inner-loading-screen d-flex align-items-center justify-content-center"
-      id="innerLoadingScreen"
-    >
-      <span class="loader"></span>
-    </div>
-    <section>
-      <div class="container searchContainer py-5">
-        <input
-          id="search"
-          type="search"
-          placeholder="Search"
-          class="form-control w-50 mx-auto bg-dark rounded-pill text-white shadow-none border-info px-3"
-        />
+      class="nav-header d-flex flex-column justify-content-between align-items-center py-4 text-center px-2 bg-white text-black">
+      <div class="logo-img">
+        <img class="logo w-100" src="/images/logo - Copy.png" alt="" srcset="" />
       </div>
-
-      <div class="container">
-        <div class="row g-4" id="nowPlaying"></div>
+      <div class="icons d-flex flex-column">
+        <i class="fa-solid fa-align-justify d-block" id="openSideNav"></i>
+        <i class="fa-solid fa-xmark d-none" id="closeSideNav"></i>
       </div>
-    </section>
-    <section>
-      <div class="container py-3">
-        <div class="row g-4" id="popular"></div>
-      </div>
-    </section>
-    <section>
-      <div class="container py-3">
-        <div class="row g-4" id="topRated"></div>
-      </div>
-    </section>
-    <section>
-      <div class="container py-3">
-        <div class="row g-4" id="trending"></div>
-      </div>
-    </section>
-    <section>
-      <div class="container py-3">
-        <div class="row g-4" id="upcoming"></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container py-3">
-        <div class="row g-4" id="Search"></div>
-      </div>
-    </section>
-    <div class="contactPage" id="Contactus">
-      <div class="container contact-container py-5">
-        <h2 class="text-light">Contact Us</h2>
-        <form>
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <input
-                type="text"
-                required=""
-                id="nameInput"
-                maxlength="37"
-                class="form-control mt-4"
-                placeholder="Enter Your Name"
-                onkeyup="checkName()"
-              />
-              <span class="error"></span>
-            </div>
-            <div class="col-md-6">
-              <input
-                type="email"
-                required=""
-                id="emailInput"
-                class="form-control mt-4"
-                placeholder="Enter Your Email"
-                onkeyup="checkEmail()"
-              />
-              <span class="error"></span>
-            </div>
-            <div class="col-md-6">
-              <input
-                type="number"
-                required=""
-                id="phoneInput"
-                class="form-control mt-4"
-                placeholder="Enter Your Phone"
-                onkeyup="checkPhone()"
-              />
-              <span class="error"></span>
-            </div>
-            <div class="col-md-6">
-              <input
-                type="number"
-                required=""
-                id="ageInput"
-                class="form-control mt-4"
-                placeholder="Enter Your Age"
-                onkeyup="checkAge()"
-              />
-              <span class="error"></span>
-            </div>
-            <div class="col-md-6 position-relative">
-              <input
-                type="password"
-                required=""
-                id="passwordInput"
-                class="form-control mt-4"
-                placeholder="Enter Your Password"
-                onkeyup="checkPassword()"
-              />
-              <span class="error"></span>
-              <span class="showPass" style="opacity: 0; bottom: -20px"
-                ><i data-show="show" class="fa-solid fa-eye-slash"></i
-              ></span>
-            </div>
-            <div class="col-md-6">
-              <input
-                type="password"
-                required=""
-                id="repasswordInput"
-                class="form-control mt-4"
-                placeholder="ReEnter Password"
-                onkeyup="reCheckPassword()"
-              />
-              <span class="error"></span>
-            </div>
-            <!-- <div class="col-md-12 mt-4"> -->
-              <button class="btn " id="submitBtn">Submit</button>
-            <!-- </div> -->
-          </div>
-        </form>
+      <div>
+        <i class="fa-solid fa-globe d-block"></i>
+        <i class="fa-solid fa-share-nodes"></i>
       </div>
     </div>
-    <script src="js/code.jquery.com_jquery-3.7.0.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/index.js"></script>
-  </body>
+  </div>
+  <div class="inner-loading-screen d-flex align-items-center justify-content-center" id="innerLoadingScreen">
+    <span class="loader"></span>
+  </div>
+
+
+
+  <section>
+    <div class="container searchContainer py-5">
+      <input id="search" type="search" placeholder="Search"
+        class="form-control w-50 mx-auto bg-dark rounded-pill text-white shadow-none border-info px-3" />
+    </div>
+    <div class="container">
+      <div class="row g-4 mt-3" id="nowPlaying"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container py-3">
+      <div class="row g-4" id="popular"></div>
+    </div>
+  </section>
+  <section>
+    <div class="container py-3">
+      <div class="row g-4" id="topRated"></div>
+    </div>
+  </section>
+  <section>
+    <div class="container py-3">
+      <div class="row g-4" id="trending"></div>
+    </div>
+  </section>
+  <section>
+    <div class="container py-3">
+      <div class="row g-4" id="upcoming"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container py-3">
+      <div class="row g-4" id="Search"></div>
+    </div>
+  </section>
+  <section id="contact" class="container text-white py-5">
+    <h2>Contact US</h2>
+  <form>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <input type="text" required id="name" maxlength="37" class="form-control mt-4" placeholder="Enter Your Name">
+            <span Class="error" class="animate__animated"></span>
+        </div>
+        <div class="col-md-6">
+            <input type="email" required id="email"  class="form-control mt-4" placeholder="Enter Your Email">
+            <span Class="error" class="animate__animated"></span>
+        </div>
+        <div class="col-md-6">
+            <input type="number"required id="phone" class="form-control mt-4" placeholder="Enter Your Phone">
+            <span Class="error" class="animate__animated"></span>
+        </div>
+        <div class="col-md-6">
+            <input type="number"required id="age"  class="form-control mt-4" placeholder="Enter Your Age">
+            <span Class="error" class="animate__animated"></span>
+        </div>
+        <div class="col-md-6 position-relative">
+            <input type="password" required id="password" class="form-control mt-4" placeholder="Enter Your Password">
+            <span Class="error" class="animate__animated"></span>
+            <span class="showPass">
+        </div>
+        <div class="col-md-6">
+            <input type="password"required id="repassword" class="form-control mt-4" placeholder="ReEnter Password">
+            <span Class="error" class="animate__animated"></span>
+        </div>
+        <div class="col-md-12  mt-4">
+            <button type="submit" class="form-btn rounded-2 mb-3 animate__animated">Submit</button>
+        </div>
+    </form>
+  </div></section>
+  <script src="js/code.jquery.com_jquery-3.7.0.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
 </html>
